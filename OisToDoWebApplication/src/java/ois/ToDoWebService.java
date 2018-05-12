@@ -136,7 +136,7 @@ public class ToDoWebService {
                     toDoList.get(i).setPunktideSumma(toDoList.get(i).getPunktideSumma() + toDoTask.getQuantity() * toDoTask.getPunktid());
                     toDoList.get(i).setPunktideAdjustment(toDoList.get(i).getPunktidAdjustment() + toDoTask.getQuantity() * toDoTask.getBoonus());
                     return toDoTask;
-                }
+                }   
             } 
         }
         return null;
