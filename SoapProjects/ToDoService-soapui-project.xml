@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3e8d48d3-2f9f-433c-95b5-74d88040d584" activeEnvironment="Default" name="ToDoService" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f414b8b4-2a1f-47ab-81f4-fe1fee5bd716" wsaVersion="NONE" name="ToDoBinding" type="wsdl" bindingName="{http://www.tud.ttu.ee/web/dasoyl/OisToDo}ToDoBinding" soapVersion="1_1" anonymous="optional" definition="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl"><con:part><con:url>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<wsdl:definitions targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" elementFormDefault="qualified">
+      <xs:complexType name="taskType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+          <xs:element name="code" type="xs:string"/>
+          <xs:element name="type" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="aine" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="taskNotes" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="toDoTaskType">
+        <xs:sequence>
+          <xs:element name="task" type="tns:taskType"/>
+          <xs:element name="quantity" type="xs:double"/>
+          <xs:element name="punktid" type="xs:double"/>
+          <xs:element name="boonus" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="toDoTaskListType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="toDoTask" type="tns:toDoTaskType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="toDoType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:integer"/>
+          <xs:element name="toDoDate" type="xs:date"/>
+          <xs:element name="dueDate" type="xs:date"/>
+          <xs:element name="studentName" type="xs:string"/>
+          <xs:element name="punktideSumma" type="xs:double"/>
+          <xs:element name="punktidAdjustment" type="xs:double"/>
+          <xs:element name="toDoTaskList" type="tns:toDoTaskListType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getTaskRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="id" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getTaskResponse" type="tns:taskType"/>
+      <xs:element name="addTaskRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="type">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="task|test"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="code" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addTaskResponse" type="tns:taskType"/>
+      <xs:element name="getTaskListRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getTaskListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="task" type="tns:taskType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getToDoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="id" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getToDoResponse" type="tns:toDoType"/>
+      <xs:element name="addToDoRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="toDoDate" type="xs:date"/>
+            <xs:element name="dueDate" type="xs:date"/>
+            <xs:element name="studentName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addToDoResponse" type="tns:toDoType"/>
+      <xs:element name="getToDoListRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="startDate" type="xs:date"/>
+            <xs:element name="endDate" type="xs:date"/>
+            <xs:element minOccurs="0" name="hasRelatedTasks">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="jah|ei"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getToDoListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="toDo" type="tns:toDoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getToDoTaskListRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="toDoId" type="xs:integer"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getToDoTaskListResponse" type="tns:toDoTaskListType"/>
+      <xs:element name="addToDoTaskRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="token" type="xs:string"/>
+            <xs:element name="toDoId" type="xs:integer"/>
+            <xs:element name="taskId" type="xs:integer"/>
+            <xs:element name="quantity" type="xs:double"/>
+            <xs:element name="punktid" type="xs:double"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="boonus" type="xs:double"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addToDoTaskResponse" type="tns:toDoTaskType"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getTaskMessageRequest">
+    <wsdl:part name="parameter" element="tns:getTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getTaskMessageResponse">
+    <wsdl:part name="parameter" element="tns:getTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addTaskMessageRequest">
+    <wsdl:part name="parameter" element="tns:addTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addTaskMessageResponse">
+    <wsdl:part name="parameter" element="tns:addTaskResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getTaskListMessageRequest">
+    <wsdl:part name="parameter" element="tns:getTaskListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getTaskListMessageResponse">
+    <wsdl:part name="parameter" element="tns:getTaskListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoMessageRequest">
+    <wsdl:part name="parameter" element="tns:getToDoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoMessageResponse">
+    <wsdl:part name="parameter" element="tns:getToDoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addToDoMessageRequest">
+    <wsdl:part name="parameter" element="tns:addToDoRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addToDoMessageResponse">
+    <wsdl:part name="parameter" element="tns:addToDoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoListMessageRequest">
+    <wsdl:part name="parameter" element="tns:getToDoListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoListMessageResponse">
+    <wsdl:part name="parameter" element="tns:getToDoListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoTaskListMessageRequest">
+    <wsdl:part name="parameter" element="tns:getToDoTaskListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getToDoTaskListMessageResponse">
+    <wsdl:part name="parameter" element="tns:getToDoTaskListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="addToDoTaskMessageRequest">
+    <wsdl:part name="parameter" element="tns:addToDoTaskRequest"/>
+  </wsdl:message>
+  <wsdl:message name="addToDoTaskMessageResponse">
+    <wsdl:part name="parameter" element="tns:addToDoTaskResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ToDoPortType">
+    <wsdl:operation name="getTask">
+      <wsdl:input message="tns:getTaskMessageRequest"/>
+      <wsdl:output message="tns:getTaskMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addTask">
+      <wsdl:input message="tns:addTaskMessageRequest"/>
+      <wsdl:output message="tns:addTaskMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskList">
+      <wsdl:input message="tns:getTaskListMessageRequest"/>
+      <wsdl:output message="tns:getTaskListMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getToDo">
+      <wsdl:input message="tns:getToDoMessageRequest"/>
+      <wsdl:output message="tns:getToDoMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addToDo">
+      <wsdl:input message="tns:addToDoMessageRequest"/>
+      <wsdl:output message="tns:addToDoMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getToDoList">
+      <wsdl:input message="tns:getToDoListMessageRequest"/>
+      <wsdl:output message="tns:getToDoListMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getToDoTaskList">
+      <wsdl:input message="tns:getToDoTaskListMessageRequest"/>
+      <wsdl:output message="tns:getToDoTaskListMessageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addToDoTask">
+      <wsdl:input message="tns:addToDoTaskMessageRequest"/>
+      <wsdl:output message="tns:addToDoTaskMessageResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ToDoBinding" type="tns:ToDoPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getTask">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTask">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTaskList">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToDo">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToDo">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToDoList">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getToDoTaskList">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToDoTask">
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ToDoService">
+    <wsdl:port name="ToDoPort" binding="tns:ToDoBinding">
+      <soap:address location="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DESKTOP-47UH273:8088/mockToDoBinding</con:endpoint><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint></con:endpoints><con:operation id="864d9d57-c1db-4c88-9251-0820b83e4ed6" isOneWay="false" action="" name="addTask" bindingOperationName="addTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66a4d4f1-5368-4149-a8ee-3b88b5190214" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:type>task</ois:type>\r
+         <ois:code>IDU00753</ois:code>\r
+      </ois:addTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addTaskRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="51072de8-719a-441a-ba18-f609f6615d91" isOneWay="false" action="" name="addToDo" bindingOperationName="addToDo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="13d80b22-febe-4d19-8c32-b9b7cbe5704a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addToDoRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoDate>2018-05-16</ois:toDoDate>\r
+         <ois:dueDate>2018-05-18</ois:dueDate>\r
+         <ois:studentName>dasoyl</ois:studentName>\r
+      </ois:addToDoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3ca030a1-017f-4265-a918-6acd3b6c7757" isOneWay="false" action="" name="addToDoTask" bindingOperationName="addToDoTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="81059683-6029-4813-a48f-1b43d3d5df9d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addToDoTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoId>1</ois:toDoId>\r
+         <ois:taskId>2</ois:taskId>\r
+         <ois:quantity>2</ois:quantity>\r
+         <ois:punktid>1</ois:punktid>\r
+         <!--Optional:-->\r
+         <ois:boonus>0</ois:boonus>\r
+      </ois:addToDoTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoTaskRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6bee976b-5a18-4696-a96d-bb89e4a7eb62" isOneWay="false" action="" name="getTask" bindingOperationName="getTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0ae331bb-bff0-40e6-9dfb-3e856e3a796e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:id>1</ois:id>\r
+      </ois:getTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9bd579f7-5ba5-47cb-9ed5-130710ad83e3" isOneWay="false" action="" name="getTaskList" bindingOperationName="getTaskList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4410311f-1171-4eb2-ae09-080e4fa8c1e6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getTaskListRequest>\r
+         <ois:token>salajane</ois:token>\r
+      </ois:getTaskListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="645a5cfe-e75a-4a7a-8dd2-2ec9f5d604df" isOneWay="false" action="" name="getToDo" bindingOperationName="getToDo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="adb3830b-9eeb-40e9-a0c4-8d6138ef3cc4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:id>1</ois:id>\r
+      </ois:getToDoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="91625374-4f98-4d7f-b390-f420574a835f" isOneWay="false" action="" name="getToDoList" bindingOperationName="getToDoList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f6f5f75-c8c1-43b1-9fc8-21584106fe4c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoListRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:startDate>2018-05-15</ois:startDate>\r
+         <ois:endDate>2018-05-20</ois:endDate>\r
+         <!--Optional:-->\r
+         <ois:hasRelatedTasks>jah</ois:hasRelatedTasks>\r
+      </ois:getToDoListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e888782e-b9a8-4d19-9032-a2ae2189147d" isOneWay="false" action="" name="getToDoTaskList" bindingOperationName="getToDoTaskList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6745c018-ce25-4264-9b8a-7c5cf8518f91" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoTaskListRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoId>1</ois:toDoId>\r
+      </ois:getToDoTaskListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="c6cf0036-f8ed-4e16-8fb1-c5b317333527" port="8088" path="/mockToDoBinding" host="DESKTOP-47UH273" name="ToDoBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="addTask" id="d5a41595-958d-482b-8079-2e838252480d" interface="ToDoBinding" operation="addTask"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="2e2e25ff-d684-4aaf-8f15-e0bddf817ae6" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:addTaskResponse>
+         <ois:id>?</ois:id>
+         <ois:code>?</ois:code>
+         <ois:type>?</ois:type>
+         <!--Optional:-->
+         <ois:aine>?</ois:aine>
+         <!--Optional:-->
+         <ois:taskNotes>?</ois:taskNotes>
+      </ois:addTaskResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addTaskResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="addToDo" id="a899104a-cd98-4f74-ab93-f971c96e2464" interface="ToDoBinding" operation="addToDo"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="b677571e-5ffe-4e21-9e97-ebe3236dfd57" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:addToDoResponse>
+         <ois:id>?</ois:id>
+         <ois:toDoDate>?</ois:toDoDate>
+         <ois:dueDate>?</ois:dueDate>
+         <ois:studentName>?</ois:studentName>
+         <ois:punktideSumma>?</ois:punktideSumma>
+         <ois:punktidAdjustment>?</ois:punktidAdjustment>
+         <ois:toDoTaskList>
+            <!--Zero or more repetitions:-->
+            <ois:toDoTask>
+               <ois:task>
+                  <ois:id>?</ois:id>
+                  <ois:code>?</ois:code>
+                  <ois:type>?</ois:type>
+                  <!--Optional:-->
+                  <ois:aine>?</ois:aine>
+                  <!--Optional:-->
+                  <ois:taskNotes>?</ois:taskNotes>
+               </ois:task>
+               <ois:quantity>?</ois:quantity>
+               <ois:punktid>?</ois:punktid>
+               <ois:boonus>?</ois:boonus>
+            </ois:toDoTask>
+         </ois:toDoTaskList>
+      </ois:addToDoResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="addToDoTask" id="1bea0fb5-5de7-4636-a7a8-169c7cfec786" interface="ToDoBinding" operation="addToDoTask"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="9cd63b84-6b28-463c-8ec1-c90fa655aa05" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:addToDoTaskResponse>
+         <ois:task>
+            <ois:id>?</ois:id>
+            <ois:code>?</ois:code>
+            <ois:type>?</ois:type>
+            <!--Optional:-->
+            <ois:aine>?</ois:aine>
+            <!--Optional:-->
+            <ois:taskNotes>?</ois:taskNotes>
+         </ois:task>
+         <ois:quantity>?</ois:quantity>
+         <ois:punktid>?</ois:punktid>
+         <ois:boonus>?</ois:boonus>
+      </ois:addToDoTaskResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoTaskResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getTask" id="c87f267e-4124-405d-b95f-bdedc942062c" interface="ToDoBinding" operation="getTask"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="fdc63217-8fb9-4823-ba72-3bf0831580f5" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:getTaskResponse>
+         <ois:id>?</ois:id>
+         <ois:code>?</ois:code>
+         <ois:type>?</ois:type>
+         <!--Optional:-->
+         <ois:aine>?</ois:aine>
+         <!--Optional:-->
+         <ois:taskNotes>?</ois:taskNotes>
+      </ois:getTaskResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getTaskList" id="a1779e7a-6695-416a-834b-c7925113ab46" interface="ToDoBinding" operation="getTaskList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="623257c5-a2b5-4f8a-958e-c434127c464c" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:getTaskListResponse>
+         <!--Zero or more repetitions:-->
+         <ois:task>
+            <ois:id>?</ois:id>
+            <ois:code>?</ois:code>
+            <ois:type>?</ois:type>
+            <!--Optional:-->
+            <ois:aine>?</ois:aine>
+            <!--Optional:-->
+            <ois:taskNotes>?</ois:taskNotes>
+         </ois:task>
+      </ois:getTaskListResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskListResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getToDo" id="46f94b5a-834f-4754-947f-b486a948ad4a" interface="ToDoBinding" operation="getToDo"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="eb8b2157-8a96-43fa-b49d-8c46a520cd83" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:getToDoResponse>
+         <ois:id>?</ois:id>
+         <ois:toDoDate>?</ois:toDoDate>
+         <ois:dueDate>?</ois:dueDate>
+         <ois:studentName>?</ois:studentName>
+         <ois:punktideSumma>?</ois:punktideSumma>
+         <ois:punktidAdjustment>?</ois:punktidAdjustment>
+         <ois:toDoTaskList>
+            <!--Zero or more repetitions:-->
+            <ois:toDoTask>
+               <ois:task>
+                  <ois:id>?</ois:id>
+                  <ois:code>?</ois:code>
+                  <ois:type>?</ois:type>
+                  <!--Optional:-->
+                  <ois:aine>?</ois:aine>
+                  <!--Optional:-->
+                  <ois:taskNotes>?</ois:taskNotes>
+               </ois:task>
+               <ois:quantity>?</ois:quantity>
+               <ois:punktid>?</ois:punktid>
+               <ois:boonus>?</ois:boonus>
+            </ois:toDoTask>
+         </ois:toDoTaskList>
+      </ois:getToDoResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getToDoList" id="a055fa6a-e088-4ce8-80e2-867cb22765bb" interface="ToDoBinding" operation="getToDoList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="6e232c12-dac0-41a4-9563-773808b4f909" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:getToDoListResponse>
+         <!--Zero or more repetitions:-->
+         <ois:toDo>
+            <ois:id>?</ois:id>
+            <ois:toDoDate>?</ois:toDoDate>
+            <ois:dueDate>?</ois:dueDate>
+            <ois:studentName>?</ois:studentName>
+            <ois:punktideSumma>?</ois:punktideSumma>
+            <ois:punktidAdjustment>?</ois:punktidAdjustment>
+            <ois:toDoTaskList>
+               <!--Zero or more repetitions:-->
+               <ois:toDoTask>
+                  <ois:task>
+                     <ois:id>?</ois:id>
+                     <ois:code>?</ois:code>
+                     <ois:type>?</ois:type>
+                     <!--Optional:-->
+                     <ois:aine>?</ois:aine>
+                     <!--Optional:-->
+                     <ois:taskNotes>?</ois:taskNotes>
+                  </ois:task>
+                  <ois:quantity>?</ois:quantity>
+                  <ois:punktid>?</ois:punktid>
+                  <ois:boonus>?</ois:boonus>
+               </ois:toDoTask>
+            </ois:toDoTaskList>
+         </ois:toDo>
+      </ois:getToDoListResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoListResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getToDoTaskList" id="a6bbaec2-abfc-42c2-8216-e47522561a86" interface="ToDoBinding" operation="getToDoTaskList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="e7b4b5e2-96fb-44e5-895d-b201625cb3d6" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ois:getToDoTaskListResponse>
+         <!--Zero or more repetitions:-->
+         <ois:toDoTask>
+            <ois:task>
+               <ois:id>?</ois:id>
+               <ois:code>?</ois:code>
+               <ois:type>?</ois:type>
+               <!--Optional:-->
+               <ois:aine>?</ois:aine>
+               <!--Optional:-->
+               <ois:taskNotes>?</ois:taskNotes>
+            </ois:task>
+            <ois:quantity>?</ois:quantity>
+            <ois:punktid>?</ois:punktid>
+            <ois:boonus>?</ois:boonus>
+         </ois:toDoTask>
+      </ois:getToDoTaskListResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

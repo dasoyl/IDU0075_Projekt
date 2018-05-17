@@ -1,0 +1,4 @@
+//tasks optional. default value Jah
+http://desktop-47uh273:8080/ToDoWebApplication/webresources/todos/?token=salajane&start=15-05-18&end=20-05-18
+http://desktop-47uh273:8080/ToDoWebApplication/webresources/todos/?token=salajane&start=15-05-18&end=20-05-18&tasks=ei
+http://desktop-47uh273:8080/ToDoWebApplication/webresources/todos/?token=salajane&start=15-05-18&end=20-05-18&tasks=jah
