@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/C:/Users/darya/Documents/IDU0075GitHub/ToDoService.wsdl" uri="src/conf/xml-resources/web-services/ToDoWebService/wsdl/ToDoService.wsdl"/>
-    <system systemId="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl" uri="src/conf/xml-resources/web-service-references/ToDoService/wsdl/desktop-47uh273_8080/ToDoWebApplication/ToDoService.wsdl"/>
+    <system systemId="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl" uri="wsdl/desktop-47uh273_8080/ToDoWebApplication/ToDoService.wsdl"/>
 </catalog>

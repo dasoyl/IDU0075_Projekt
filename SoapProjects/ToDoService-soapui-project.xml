@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="3e8d48d3-2f9f-433c-95b5-74d88040d584" activeEnvironment="Default" name="ToDoService" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f414b8b4-2a1f-47ab-81f4-fe1fee5bd716" wsaVersion="NONE" name="ToDoBinding" type="wsdl" bindingName="{http://www.tud.ttu.ee/web/dasoyl/OisToDo}ToDoBinding" soapVersion="1_1" anonymous="optional" definition="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl"><con:part><con:url>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<con:soapui-project id="3e8d48d3-2f9f-433c-95b5-74d88040d584" activeEnvironment="Default" name="ToDoService" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="TestSuite" value="ToDoBinding TestSuite"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="f414b8b4-2a1f-47ab-81f4-fe1fee5bd716" wsaVersion="NONE" name="ToDoBinding" type="wsdl" bindingName="{http://www.tud.ttu.ee/web/dasoyl/OisToDo}ToDoBinding" soapVersion="1_1" anonymous="optional" definition="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl"><con:part><con:url>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
 <wsdl:definitions targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
   <wsdl:types>
     <xs:schema targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" elementFormDefault="qualified">
@@ -310,7 +341,7 @@
    <soapenv:Body>\r
       <ois:addToDoRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:toDoDate>2018-05-16</ois:toDoDate>\r
+         <ois:toDoDate>2018-05-15</ois:toDoDate>\r
          <ois:dueDate>2018-05-18</ois:dueDate>\r
          <ois:studentName>dasoyl</ois:studentName>\r
       </ois:addToDoRequest>\r
@@ -320,12 +351,12 @@
    <soapenv:Body>\r
       <ois:addToDoTaskRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:toDoId>1</ois:toDoId>\r
-         <ois:taskId>2</ois:taskId>\r
+         <ois:toDoId>2</ois:toDoId>\r
+         <ois:taskId>7</ois:taskId>\r
          <ois:quantity>2</ois:quantity>\r
          <ois:punktid>1</ois:punktid>\r
          <!--Optional:-->\r
-         <ois:boonus>0</ois:boonus>\r
+         <ois:boonus>0.5</ois:boonus>\r
       </ois:addToDoTaskRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoTaskRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6bee976b-5a18-4696-a96d-bb89e4a7eb62" isOneWay="false" action="" name="getTask" bindingOperationName="getTask" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0ae331bb-bff0-40e6-9dfb-3e856e3a796e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
@@ -348,7 +379,7 @@
    <soapenv:Body>\r
       <ois:getToDoRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:id>1</ois:id>\r
+         <ois:id>2</ois:id>\r
       </ois:getToDoRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="91625374-4f98-4d7f-b390-f420574a835f" isOneWay="false" action="" name="getToDoList" bindingOperationName="getToDoList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f6f5f75-c8c1-43b1-9fc8-21584106fe4c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
@@ -359,7 +390,7 @@
          <ois:startDate>2018-05-15</ois:startDate>\r
          <ois:endDate>2018-05-20</ois:endDate>\r
          <!--Optional:-->\r
-         <ois:hasRelatedTasks>jah</ois:hasRelatedTasks>\r
+         <ois:hasRelatedTasks>ei</ois:hasRelatedTasks>\r
       </ois:getToDoListRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e888782e-b9a8-4d19-9032-a2ae2189147d" isOneWay="false" action="" name="getToDoTaskList" bindingOperationName="getToDoTaskList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6745c018-ce25-4264-9b8a-7c5cf8518f91" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
@@ -370,7 +401,81 @@
          <ois:toDoId>1</ois:toDoId>\r
       </ois:getToDoTaskListRequest>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="c6cf0036-f8ed-4e16-8fb1-c5b317333527" port="8088" path="/mockToDoBinding" host="DESKTOP-47UH273" name="ToDoBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="addTask" id="d5a41595-958d-482b-8079-2e838252480d" interface="ToDoBinding" operation="addTask"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="2e2e25ff-d684-4aaf-8f15-e0bddf817ae6" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="83fcb4a8-3c77-4360-b5e4-d5441e79aef2" name="ToDoBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="24f37e3b-7c72-4c40-9d72-91776d845a6f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6e113305-c573-4971-b103-0643d00e3528" name="addTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>addTask</con:operation><con:request name="addTask" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="751ffd30-4d5c-46b7-a857-adce9f954749"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:type>task</ois:type>\r
+         <ois:code>IDU00753</ois:code>\r
+      </ois:addTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="c4d0bb16-d026-40cd-ad66-f894704d3e72" name="Contains"><con:configuration><token>task</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addTaskRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a4a40b15-571c-4c5f-af0d-0933a9d4061b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addToDo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="23fe1e4a-60da-4b29-88d3-b50930276d08" name="addToDo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>addToDo</con:operation><con:request name="addToDo" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f3ecb3a9-1257-4e90-bf1d-593431349af1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addToDoRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoDate>2018-05-15</ois:toDoDate>\r
+         <ois:dueDate>2018-05-18</ois:dueDate>\r
+         <ois:studentName>dasoyl</ois:studentName>\r
+      </ois:addToDoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple NotContains" id="67aa7020-530d-4413-b3dc-179fd2b43d37" name="Not Contains"><con:configuration><token>IDU0075</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="fd9dae2d-c15b-4fd8-9c7f-f7d6fa9369f4" name="Contains"><con:configuration><token>dasoyl</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="10077afb-c80c-4936-a1c7-f6f470b4f7a3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addToDoTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="2cd4ce0e-cc7a-49e4-bf77-dfb64a2ffa37" name="addToDoTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>addToDoTask</con:operation><con:request name="addToDoTask" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="2d4f584b-fd5d-4bcb-8e68-3cdc1c929856"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:addToDoTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoId>2</ois:toDoId>\r
+         <ois:taskId>7</ois:taskId>\r
+         <ois:quantity>2</ois:quantity>\r
+         <ois:punktid>1</ois:punktid>\r
+         <!--Optional:-->\r
+         <ois:boonus>0.5</ois:boonus>\r
+      </ois:addToDoTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Response SLA Assertion" id="006cd4ff-673c-4454-abc0-1a81b7a0f969" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Simple Contains" id="543acf76-7b20-4319-9be3-863b0d27c26d" name="Contains"><con:configuration><token>IDU0075</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/addToDoTaskRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="232d9856-e1b7-4858-82d0-f8a19260950c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="52ceca8d-bd1a-47f1-abb3-2c65410c09d0" name="getTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>getTask</con:operation><con:request name="getTask" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="7dfe7343-4856-4352-8c0a-58693a8645b4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getTaskRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:id>1</ois:id>\r
+      </ois:getTaskRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="c4eb1558-708f-4035-b4b8-2bb92eb2050c" name="Contains"><con:configuration><token>IDU0075</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="f92c0211-ff8e-482b-9695-6c4cb9dd7f93" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getTaskList TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="3af87e5c-ece6-42b5-8ca3-1ffc285734bd" name="getTaskList"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>getTaskList</con:operation><con:request name="getTaskList" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="090f4e3a-5e97-40bc-8604-ed9eee22d042"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getTaskListRequest>\r
+         <ois:token>salajane</ois:token>\r
+      </ois:getTaskListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="51842dba-0074-4ed2-a7ea-e0322c973076" name="Contains 3"><con:configuration><token>&lt;id>3&lt;/id></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="5af2014c-5650-41fe-92be-1ff57c102233" name="Contains 1"><con:configuration><token>&lt;id>1&lt;/id></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="dd5ccce1-1b26-4c40-b502-a990b3ded33d" name="Contains 2"><con:configuration><token>&lt;id>2&lt;/id></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getTaskListRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="348b53d0-bfe7-41c5-9c64-6c866dc8342e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getToDo TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="843a2cf0-bf54-450d-8559-4048f39cbdec" name="getToDo"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>getToDo</con:operation><con:request name="getToDo" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f81d9e96-b0bf-45de-aea2-22df1e250dae"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:id>2</ois:id>\r
+      </ois:getToDoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="db5d8d05-914c-45ef-8d5d-3310822c2934" name="Contains"><con:configuration><token>&lt;code>IDU0075</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5ec8aa74-5bdd-4930-9908-86524dd59046" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getToDoList TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="714fbd70-e9e5-4782-958d-a76140de8421" name="getToDoList"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>getToDoList</con:operation><con:request name="getToDoList" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="4a30c832-8cad-42c7-9157-f72c33d86732"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoListRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:startDate>2018-05-15</ois:startDate>\r
+         <ois:endDate>2018-05-20</ois:endDate>\r
+         <!--Optional:-->\r
+         <ois:hasRelatedTasks>ei</ois:hasRelatedTasks>\r
+      </ois:getToDoListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple NotContains" id="67b72823-fc15-4261-80cc-58b36921bba8" name="Not Contains"><con:configuration><token>&lt;task></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="74c21905-95ce-4732-a6b0-ba640ce52913" name="Contains"><con:configuration><token>&lt;studentName>Darja&lt;/studentName></token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoListRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6b5b7c63-fa7e-4735-b8fb-ac513b1e1905" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getToDoTaskList TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="282a329b-95b9-4545-9cbb-73c728c8f82c" name="getToDoTaskList"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>getToDoTaskList</con:operation><con:request name="getToDoTaskList" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ab5f930a-cbe1-4b4d-8ca0-5ef48b9c3062"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ois:getToDoTaskListRequest>\r
+         <ois:token>salajane</ois:token>\r
+         <ois:toDoId>1</ois:toDoId>\r
+      </ois:getToDoTaskListRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="31f49f69-6822-496c-a513-c338bc5e4c8a" name="Contains"><con:configuration><token>&lt;task></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListRequest"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="c6cf0036-f8ed-4e16-8fb1-c5b317333527" port="8088" path="/mockToDoBinding" host="DESKTOP-47UH273" name="ToDoBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="addTask" id="d5a41595-958d-482b-8079-2e838252480d" interface="ToDoBinding" operation="addTask"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="2e2e25ff-d684-4aaf-8f15-e0bddf817ae6" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
    <soapenv:Header/>
    <soapenv:Body>
       <ois:addTaskResponse>
@@ -541,4 +646,4 @@
          </ois:toDoTask>
       </ois:getToDoTaskListResponse>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ttu.ee/idu0110/suusalaenutus/1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="oistodoRequest" type="tns:oistodoRequestType">
+        <xs:annotation>
+            <xs:documentation>Comment describing your root element</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="oistodoResponse" type="tns:oistodoResponseType"/>
+    <xs:complexType name="oistodoResponseType">
+        <xs:sequence>
+            <xs:element name="taskList" type="tns:taskListType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="taskType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="aine" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="taskNotes" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="toDoTaskType">
+        <xs:sequence>
+            <xs:element name="task" type="tns:taskType"/>
+            <xs:element name="quantity" type="xs:double"/>
+            <xs:element name="punktid" type="xs:double"/>
+            <xs:element name="boonus" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="toDoTaskListType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="toDoTask" type="tns:toDoTaskType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="toDoType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:integer"/>
+            <xs:element name="toDoDate" type="xs:date"/>
+            <xs:element name="dueDate" type="xs:date"/>
+            <xs:element name="studentName" type="xs:string"/>
+            <xs:element name="punktideSumma" type="xs:double"/>
+            <xs:element name="punktidAdjustment" type="xs:double"/>
+            <xs:element name="toDoTaskList" type="tns:toDoTaskListType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="id" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTaskResponse" type="tns:taskType"/>
+    <xs:element name="addTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="task|test"/>
+                    </xs:restriction>
+                </xs:simpleType>
+                </xs:element>
+                <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addTaskResponse" type="tns:taskType"/>
+    <xs:element name="getTaskListRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTaskListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="task" type="tns:taskType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getToDoRequest">
+	<xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="id" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getToDoResponse" type="tns:toDoType"/>
+    <xs:element name="addToDoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                    <xs:element name="token" type="xs:string"/>
+                    <xs:element name="toDoDate" type="xs:date"/>
+                    <xs:element name="dueDate" type="xs:date"/>
+                    <xs:element name="studentName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addToDoResponse" type="tns:toDoType"/>
+    <xs:element name="getToDoListRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="startDate" type="xs:date"/>
+                <xs:element name="endDate" type="xs:date"/>
+                <xs:element minOccurs="0" name="hasRelatedTasks">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="jah|ei"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getToDoListResponse">
+        <xs:complexType>
+            <xs:sequence>
+		<xs:element minOccurs="0" maxOccurs="unbounded" name="toDo" type="tns:toDoType"/>
+            </xs:sequence>
+	</xs:complexType>
+    </xs:element>
+    <xs:element name="getToDoTaskListRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="toDoId" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getToDoTaskListResponse" type="tns:toDoTaskListType"/>
+    <xs:element name="addToDoTaskRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="token" type="xs:string"/>
+                <xs:element name="toDoId" type="xs:integer"/>
+                <xs:element name="taskId" type="xs:integer"/>
+                <xs:element name="quantity" type="xs:double"/>
+                <xs:element name="punktid" type="xs:double"/>
+                <xs:element minOccurs="0" maxOccurs="1" name="boonus" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="addToDoTaskResponse" type="tns:toDoTaskType"/>
+</xs:schema>

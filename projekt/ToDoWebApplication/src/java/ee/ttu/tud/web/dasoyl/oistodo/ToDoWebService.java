@@ -16,7 +16,8 @@ public class ToDoWebService {
     static int nextToDoId = 1;
     static List<TaskType> taskList = new ArrayList<TaskType>();
     static List<ToDoType> toDoList = new ArrayList<ToDoType>();
-    
+      
+       
     public ee.ttu.tud.web.dasoyl.oistodo.TaskType getTask(ee.ttu.tud.web.dasoyl.oistodo.GetTaskRequest parameter) {
         TaskType tsk = null;
         if (parameter.getToken().equalsIgnoreCase("salajane")) {

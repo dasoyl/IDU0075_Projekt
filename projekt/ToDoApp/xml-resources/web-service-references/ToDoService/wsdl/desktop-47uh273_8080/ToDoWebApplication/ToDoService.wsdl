@@ -1,16 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
-    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-    xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
-    xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-    xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo" 
-    targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo" targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
     <wsdl:types>
-        <xs:schema  targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" elementFormDefault="qualified">
+        <xs:schema targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" elementFormDefault="qualified">
         <!-- Web service Types -->
-        <xs:complexType name ="taskType">
+        <xs:complexType name="taskType">
             <xs:sequence>
                 <xs:element name="id" type="xs:integer"/>
                 <xs:element name="code" type="xs:string"/>
@@ -19,7 +11,7 @@
                 <xs:element minOccurs="0" maxOccurs="1" name="taskNotes" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
-        <xs:complexType name ="toDoTaskType">
+        <xs:complexType name="toDoTaskType">
             <xs:sequence>
                 <xs:element name="task" type="tns:taskType"/>
                 <xs:element name="quantity" type="xs:double"/>
@@ -27,12 +19,12 @@
                 <xs:element name="boonus" type="xs:double"/>
             </xs:sequence>
         </xs:complexType>
-        <xs:complexType name ="toDoTaskListType">
+        <xs:complexType name="toDoTaskListType">
             <xs:sequence>
                 <xs:element minOccurs="0" maxOccurs="unbounded" name="toDoTask" type="tns:toDoTaskType"/>
             </xs:sequence>
         </xs:complexType>
-        <xs:complexType name ="toDoType">
+        <xs:complexType name="toDoType">
             <xs:sequence>
                 <xs:element name="id" type="xs:integer"/>
                 <xs:element name="toDoDate" type="xs:date"/>
@@ -355,7 +347,7 @@
     </wsdl:binding>
     <wsdl:service name="ToDoService">
             <wsdl:port name="ToDoPort" binding="tns:ToDoBinding">
-                    <soap:address location="Empty"/>
+                    <soap:address location="http://desktop-47uh273:8080/ToDoWebApplication/ToDoService"/>
             </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
