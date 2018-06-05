@@ -34,6 +34,7 @@
 <wsdl:definitions targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.tud.ttu.ee/web/dasoyl/OisToDo">
   <wsdl:types>
     <xs:schema targetNamespace="http://www.tud.ttu.ee/web/dasoyl/OisToDo" elementFormDefault="qualified">
+      <!--Web service Types-->
       <xs:complexType name="taskType">
         <xs:sequence>
           <xs:element name="id" type="xs:integer"/>
@@ -67,6 +68,13 @@
           <xs:element name="toDoTaskList" type="tns:toDoTaskListType"/>
         </xs:sequence>
       </xs:complexType>
+      <xs:complexType name="errorType">
+        <xs:sequence>
+          <xs:element name="code" type="xs:integer"/>
+          <xs:element name="errorMessage" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--Web service Operations-->
       <xs:element name="getTaskRequest">
         <xs:complexType>
           <xs:sequence>
@@ -75,7 +83,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="getTaskResponse" type="tns:taskType"/>
+      <xs:element name="getTaskResponse">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="task" type="tns:taskType"/>
+            <xs:element name="error" type="tns:errorType"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="addTaskRequest">
         <xs:complexType>
           <xs:sequence>
@@ -91,7 +106,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="addTaskResponse" type="tns:taskType"/>
+      <xs:element name="addTaskResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="task" type="tns:taskType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getTaskListRequest">
         <xs:complexType>
           <xs:sequence>
@@ -101,9 +122,10 @@
       </xs:element>
       <xs:element name="getTaskListResponse">
         <xs:complexType>
-          <xs:sequence>
+          <xs:choice>
             <xs:element minOccurs="0" maxOccurs="unbounded" name="task" type="tns:taskType"/>
-          </xs:sequence>
+            <xs:element name="message" type="tns:errorType"/>
+          </xs:choice>
         </xs:complexType>
       </xs:element>
       <xs:element name="getToDoRequest">
@@ -114,7 +136,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="getToDoResponse" type="tns:toDoType"/>
+      <xs:element name="getToDoResponse">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="todo" type="tns:toDoType"/>
+            <xs:element name="message" type="tns:errorType"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="addToDoRequest">
         <xs:complexType>
           <xs:sequence>
@@ -125,7 +154,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="addToDoResponse" type="tns:toDoType"/>
+      <xs:element name="addToDoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="todo" type="tns:toDoType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getToDoListRequest">
         <xs:complexType>
           <xs:sequence>
@@ -144,9 +179,10 @@
       </xs:element>
       <xs:element name="getToDoListResponse">
         <xs:complexType>
-          <xs:sequence>
+          <xs:choice>
             <xs:element minOccurs="0" maxOccurs="unbounded" name="toDo" type="tns:toDoType"/>
-          </xs:sequence>
+            <xs:element name="message" type="tns:errorType"/>
+          </xs:choice>
         </xs:complexType>
       </xs:element>
       <xs:element name="getToDoTaskListRequest">
@@ -157,7 +193,14 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="getToDoTaskListResponse" type="tns:toDoTaskListType"/>
+      <xs:element name="getToDoTaskListResponse">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="todoTaskList" type="tns:toDoTaskListType"/>
+            <xs:element name="message" type="tns:errorType"/>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="addToDoTaskRequest">
         <xs:complexType>
           <xs:sequence>
@@ -170,7 +213,13 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="addToDoTaskResponse" type="tns:toDoTaskType"/>
+      <xs:element name="addToDoTaskResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="todoTask" type="tns:toDoTaskType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="getTaskMessageRequest">
@@ -342,7 +391,7 @@
       <ois:addToDoRequest>\r
          <ois:token>salajane</ois:token>\r
          <ois:toDoDate>2018-05-15</ois:toDoDate>\r
-         <ois:dueDate>2018-05-18</ois:dueDate>\r
+         <ois:dueDate>2018-06-05</ois:dueDate>\r
          <ois:studentName>dasoyl</ois:studentName>\r
       </ois:addToDoRequest>\r
    </soapenv:Body>\r
@@ -379,7 +428,7 @@
    <soapenv:Body>\r
       <ois:getToDoRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:id>2</ois:id>\r
+         <ois:id>1</ois:id>\r
       </ois:getToDoRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="91625374-4f98-4d7f-b390-f420574a835f" isOneWay="false" action="" name="getToDoList" bindingOperationName="getToDoList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f6f5f75-c8c1-43b1-9fc8-21584106fe4c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r
@@ -387,8 +436,8 @@
    <soapenv:Body>\r
       <ois:getToDoListRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:startDate>2018-05-15</ois:startDate>\r
-         <ois:endDate>2018-05-20</ois:endDate>\r
+         <ois:startDate>2018-05-14</ois:startDate>\r
+         <ois:endDate>2018-06-05</ois:endDate>\r
          <!--Optional:-->\r
          <ois:hasRelatedTasks>ei</ois:hasRelatedTasks>\r
       </ois:getToDoListRequest>\r
@@ -398,7 +447,7 @@
    <soapenv:Body>\r
       <ois:getToDoTaskListRequest>\r
          <ois:token>salajane</ois:token>\r
-         <ois:toDoId>1</ois:toDoId>\r
+         <ois:toDoId>2</ois:toDoId>\r
       </ois:getToDoTaskListRequest>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.tud.ttu.ee/web/dasoyl/OisToDo/ToDoPortType/getToDoTaskListRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="83fcb4a8-3c77-4360-b5e4-d5441e79aef2" name="ToDoBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="24f37e3b-7c72-4c40-9d72-91776d845a6f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addTask TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="6e113305-c573-4971-b103-0643d00e3528" name="addTask"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ToDoBinding</con:interface><con:operation>addTask</con:operation><con:request name="addTask" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="751ffd30-4d5c-46b7-a857-adce9f954749"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://desktop-47uh273:8080/ToDoWebApplication/ToDoService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ois="http://www.tud.ttu.ee/web/dasoyl/OisToDo">\r

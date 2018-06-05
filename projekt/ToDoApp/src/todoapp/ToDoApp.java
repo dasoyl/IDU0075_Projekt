@@ -73,16 +73,13 @@ public class ToDoApp {
                 case "1":
                     System.out.println("Enter task type: (task | test)");
                     type = scanner.nextLine();
-                    System.out.println(type);
                     System.out.println("Enter task code: ");
                     code = scanner.nextLine();
-                    System.out.println(code);
                     AddTaskRequest tsk = new AddTaskRequest();
                     tsk.setToken(API_TOKEN);
                     tsk.setType(type);
                     tsk.setCode(code);
                     AddTaskResponse tskRsp = addTask(tsk);
-                    System.out.println(tskRsp.getTask().code);
                     if (tskRsp.getTask() != null) {
                         System.out.println("Task successfully added!");
                         isDone = false;
